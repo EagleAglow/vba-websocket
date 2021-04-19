@@ -78,7 +78,7 @@ End If
 ' --------------------------------------------------------------------
 ' Not in original code...
 ' Each header except the last must be terminated by a carriage return/line feed (vbCrLf).
-' Uses an odd API feature: passes string length as -1, and StrPtr secretly appends Chr(0)
+' Uses an odd API feature: pass string length as -1, and API measures string
 ' Note: This is where websocket (internal, RFC "subprotocol") protocol is set
 ' --------------------------------------------------------------------
 Dim HeaderText As String
@@ -204,7 +204,7 @@ If (eBufferType <> WINHTTP_WEB_SOCKET_BINARY_MESSAGE_BUFFER_TYPE) Then
   GoTo quit
 End If
 
-' convert buffer (zero terminated string) into VBA string
+' convert buffer into string (crudely, just ignore zeros)
 Dim j As Long, strBuffer As String
 strBuffer = ""
 For j = LBound(rgbBuffer) To UBound(rgbBuffer)
