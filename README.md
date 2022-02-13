@@ -6,4 +6,7 @@ I found the original Microsoft example code for an echo server client
 (copy in WinHttpWebSocketSample.bas).
 
 The files for "Main.bas" and "WinHttpCommon.bas" can be imported into 
-VBA to make a client that works with an echo server, thanks to: https://websocket.org/
+VBA to make a client that works with an echo server.
+
+Unfortunately, https://websocket.org/ is no longer working, so this now uses
+ws://echo.websocket.events
