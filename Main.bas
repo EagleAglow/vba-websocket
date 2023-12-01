@@ -5,7 +5,8 @@ Option Explicit
 ' https://github.com/microsoft/Windows-classic-samples/blob/master/Samples/WinhttpWebsocket/cpp/WinhttpWebsocket.cpp
 ' Note: synchronous communication - fails if server does not reply
 ' ===================================================
-' =  Echo server thanks to: https://websocket.org/  =
+' =  Echo server thanks to: "ws.vi-server.org"      =
+' =  Project: github.com/vi/wsmirror                =
 ' ===================================================
 
 Sub Main()
@@ -40,7 +41,7 @@ End If
 
 ' Server Name
 Dim ServerName As String
-ServerName = "echo.websocket.org"
+ServerName = "ws.vi-server.org"
 
 ' Server Port
 Dim Port As Long
