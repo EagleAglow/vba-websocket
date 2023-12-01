@@ -138,8 +138,8 @@ Public Declare PtrSafe Function WinHttpWebSocketReceive Lib "winhttp" ( _
    ByVal hWebSocket As LongPtr, _
    ByRef pvBuffer As Any, _
    ByVal dwBufferLength As Long, _
-   ByRef pdwBytesRead As LongPtr, _
-   ByRef peBufferType As LongPtr _
+   ByRef pdwBytesRead As Long, _
+   ByRef peBufferType As Long _
    ) As Long
 
 Public Declare PtrSafe Function WinHttpWebSocketClose Lib "winhttp" ( _
@@ -154,7 +154,7 @@ Public Declare PtrSafe Function WinHttpWebSocketQueryCloseStatus Lib "winhttp" (
    ByRef usStatus As Integer, _
    ByRef pvReason As Any, _
    ByVal dwReasonLength As Long, _
-   ByRef pdwReasonLengthConsumed As LongPtr _
+   ByRef pdwReasonLengthConsumed As Long _
    ) As Long
 
 Public Declare PtrSafe Function WinHttpQueryHeaders Lib "winhttp" ( _
