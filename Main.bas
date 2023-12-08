@@ -18,10 +18,10 @@ Dim sizeStatusCode As Long  ' for HTTP result request
 sizeStatusCode = 4 ' four bytes for long ' for HTTP result request
 dwError = ERROR_SUCCESS
 fStatus = False
-Dim hSessionHandle As Long
-Dim hConnectionHandle As Long
-Dim hRequestHandle As Long
-Dim hWebSocketHandle As Long
+Dim hSessionHandle As LongPtr
+Dim hConnectionHandle As LongPtr
+Dim hRequestHandle As LongPtr
+Dim hWebSocketHandle As LongPtr
 hSessionHandle = 0
 hConnectionHandle = 0
 hRequestHandle = 0
@@ -32,8 +32,7 @@ Dim AgentHeader As String
 AgentHeader = "Websocket Sample"
 
 ' Create session handle
-hSessionHandle = WinHttpOpen(StrPtr(AgentHeader), _
-      WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, 0, 0, 0)
+hSessionHandle = WinHttpOpen(StrPtr(AgentHeader), WINHTTP_ACCESS_TYPE_DEFAULT_PROXY, 0, 0, 0)
 If hSessionHandle = 0 Then
   dwError = GetLastError
   GoTo quit
@@ -57,7 +56,7 @@ End If
 ' Request Method & Path
 Dim method As String, Path As String
 method = "GET" ' always
-Path = "/" ' echo.websocket.org
+Path = "/mirror" ' echo.websocket.org
 
 ' Create request handle - use 0 for null pointer to empty strings: Version, Referrer, AcceptTypes
 hRequestHandle = WinHttpOpenRequest(hConnectionHandle, StrPtr(method), StrPtr(Path), 0, 0, 0, 0)
@@ -161,7 +160,7 @@ Dim dwBufferLength As Long
 ' get correct value in case of change to buffer size
 dwBufferLength = (UBound(rgbBuffer) - LBound(rgbBuffer) + 1)
 
-Dim pbCurrentBufferPointer As Long
+Dim pbCurrentBufferPointer As LongPtr
 pbCurrentBufferPointer = VarPtr(rgbBuffer(0))
 Dim dwBytesTransferred As Long
 dwBytesTransferred = 0
@@ -278,7 +277,6 @@ quit:
   End If
   
 End Sub
-
 
 
 
